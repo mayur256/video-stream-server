@@ -1,0 +1,10 @@
+How to get Started with typescript in nodejs
+
+1. Install typescript, ts-node (Typescript transpiler) and @types/node
+2. Add tsconfig.json file at project root to configure typescript compiler
+3. Specify scripts to run the project with a ts-node runtime
+for e.g
+"scripts": {
+    ...,
+    "dev": "ts-node src/index.ts"
+}
