@@ -8,6 +8,16 @@ const server: any = http.createServer((request: IncomingMessage, response: Serve
     const { url, method } = request;
     if (url === "/video" && method === 'GET') {
         // handle video stream request
+        const range = request.headers.range;
+        if (!range) {
+            const headerAbsentError = "Range header is missing";
+            response.writeHead(400, {
+                'Content-Length': Buffer.byteLength(headerAbsentError),
+                'Content-Type': 'text/html'
+            }).end(headerAbsentError)
+        }
+
+        
     } else {
         // send the index file
         (async(response) => {
